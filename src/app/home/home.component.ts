@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ShareserviceService } from '../service/shareservice.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -54,5 +55,8 @@ gotodetails(){
 
   }
 
-
+save(f:NgForm){
+  let data = f.value
+  console.log(data)
+}
 }
