@@ -11,6 +11,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ViewComponent } from './view/view.component';
 import { DetaileComponent } from './detaile/detaile.component';
+import { NavbarComponent } from './navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { DetaileComponent } from './detaile/detaile.component';
     ProfileComponent,
     PageNotFoundComponent,
     ViewComponent,
-    DetaileComponent
+    DetaileComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
