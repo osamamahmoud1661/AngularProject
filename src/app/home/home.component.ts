@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ShareserviceService } from '../service/shareservice.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private route:Router) {    
+  constructor(private route:Router,private share:ShareserviceService) {    
+    share.print()
   }
   ngOnInit(): void {
   }
