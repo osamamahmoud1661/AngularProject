@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProfileComponent implements OnInit{
 getname=""
-getid=""
+getid="" 
   constructor(private route : ActivatedRoute) {
        route.params.subscribe(data=>{
        this.getname=data['name']
