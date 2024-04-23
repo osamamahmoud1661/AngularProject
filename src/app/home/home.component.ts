@@ -1,11 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+
+  constructor(private route:Router) {    
+  }
+  ngOnInit(): void {
+  }
   profile ={
     firstName : "osama",
     lastName:"mahmoud",
@@ -38,7 +44,13 @@ red(){
 this.titleStyle1="color:red;font-size:40px;"
 
 }
+gotoview(){
+this.route.navigate(['/profile/view/'+this.profile.firstName])
+  }
+gotodetails(){
+  this.route.navigate(['/profile/detaile'])
 
+  }
 
 
 }

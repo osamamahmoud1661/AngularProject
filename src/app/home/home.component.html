@@ -1,4 +1,4 @@
-<p [style]="titleStyle1">green red title</p>
+<!-- <p [style]="titleStyle1">green red title</p>
 <button (click)="red()">red</button>
 <button (click)="green()">green</button>
 <br>
@@ -10,12 +10,15 @@
 <button (click)="decrement()">decrement</button>
 
 <p> My name is : {{profile.firstName}} {{profile.lastName}}</p>
+<input type="text" [(ngModel)]="profile.firstName">
+<input type="text" [(ngModel)]="profile.lastName"> -->
 <!-- <p>My Website : {{profile.website}}</p>
 <p>My Country : {{profile.country}}</p>
 <p>my Age : {{profile.age}}</p>
 <img [src]="imageLink">
 <br>
 <a [href]="link">click me</a> -->
+<input [(ngModel)]="profile.firstName" >
+<button class="btn btn-primary" (click)="gotoview()">View Profile</button>
+<button class="btn btn-success" (click)="gotodetails()">details Profile</button>
 
-<input type="text" [(ngModel)]="profile.firstName">
-<input type="text" [(ngModel)]="profile.lastName">

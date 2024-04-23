@@ -14,7 +14,7 @@ const routes: Routes = [
   {path:"directives",component:DirectivesComponent},
   // {path:"profile",component:ProfileComponent},
   {path:'profile',children:[
-    {path:'view',component:ViewComponent},
+    {path:'view/:name',component:ViewComponent},
     {path:'detaile',component:DetaileComponent}
   ]},
   {path:'**',component:PageNotFoundComponent}
