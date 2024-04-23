@@ -21,15 +21,23 @@
 <!-- <input [(ngModel)]="profile.firstName" >
 <button class="btn btn-primary" (click)="gotoview()">View Profile</button>
 <button class="btn btn-success" (click)="gotodetails()">details Profile</button> -->
-<form #f="ngForm" (ngSubmit)="save(f)">
+<!-- <form #f="ngForm" (ngSubmit)="save(f)">
     <input placeholder="firstname" type="text" #firstname="ngModel" name="firstname" ngModel required minlength="10"><br>
     <div class="alert alert-danger" *ngIf="firstname.errors?.['required']&&firstname.touched">fisrt name is reqiured</div>
     <div class="alert alert-danger" *ngIf="firstname.errors?.['minlength']&&firstname.touched">minlength invalid</div>
     <input placeholder="lastName" type="text" name="lastName"ngModel><br>
     <input placeholder="age" type="number" name="age"ngModel><br>
-    <!-- <textarea name="area"ngModel></textarea><br>
+     <textarea name="area"ngModel></textarea><br>
     <input  type="checkbox"  name="firstcheck"ngModel>firstcheck<br>
-    <input type="checkbox"  name="lastcheck"ngModel>lastcheck<br> -->
+    <input type="checkbox"  name="lastcheck"ngModel>lastcheck<br> 
+    
     <button type="submit" [disabled]="f.invalid">Save</button>
+</form> -->
+
+<form [formGroup]="myform" (ngSubmit)="save()">
+    <input placeholder="firstname" type="text"  name="firstname" formControlName="fname"><br>
+    <input placeholder="lastName" type="text" name="lastName" formControlName="lname"><br>
+    <button type="submit" >Save</button>
+
 </form>
 

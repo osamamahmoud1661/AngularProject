@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ShareserviceService } from '../service/shareservice.service';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -54,9 +54,15 @@ gotodetails(){
   this.route.navigate(['/profile/detaile'])
 
   }
-
-save(f:NgForm){
-  let data = f.value
-  console.log(data)
+myform = new FormGroup({
+fname:new FormControl,
+lname:new FormControl
+})
+// save(f:NgForm){
+//   let data = f.value
+//   console.log(data)
+// }
+save(){
+  console.log(this.myform.value)
 }
 }
