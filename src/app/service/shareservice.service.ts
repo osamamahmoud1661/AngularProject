@@ -9,7 +9,7 @@ export class ShareserviceService {
     last:"mahmoud",
     country:"egypt"
   }
-
+isAdmin=false
   constructor() { }
   print(){
     console.log(this.data.name)

@@ -7,10 +7,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ViewComponent } from './view/view.component';
 import { DetaileComponent } from './detaile/detaile.component';
+import { adminGuardGuard } from './guards/admin-guard.guard';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
-  {path:"about",component:AboutComponent},
+  {path:"about",component:AboutComponent,canActivate:[adminGuardGuard]},
   {path:"directives",component:DirectivesComponent},
   // {path:"profile",component:ProfileComponent},
   {path:'profile',children:[
