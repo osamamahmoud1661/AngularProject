@@ -1,0 +1,17 @@
+<p *ngIf="verfy">wellcome osama</p>
+<div *ngFor="let item of dataArray ; index as i">
+    <p>{{i+1}} - {{item}}</p>
+</div>
+<input type="number" [(ngModel)]="num">
+<div [ngSwitch]="num">
+    <p *ngSwitchCase="1">first</p>
+    <p *ngSwitchCase="2">second</p>
+    <p *ngSwitchCase="3">third</p>
+    <p *ngSwitchDefault>a7a</p>
+
+</div>
+
+<p [ngClass]="titleCss">trying CSS</p>
+
+<p [ngClass]="'title2'">trying CSS</p>
+<p [ngStyle]="{'color':color,'font-size':size,'text-decoration':style}">trying style</p>
