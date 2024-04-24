@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ShareserviceService } from '../service/shareservice.service';
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +9,28 @@ import { FormControl, FormGroup, NgForm } from '@angular/forms';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
-
-  constructor(private route:Router,private share:ShareserviceService) {    
+myform :any
+  constructor(private route:Router,private share:ShareserviceService,private formbuilder:FormBuilder) {    
     share.print()
+    this.myform=formbuilder.group({
+      fname:[''],
+      lname:['']
+
+    })
   }
   ngOnInit(): void {
   }
+  // myform = new FormGroup({
+  //   fname:new FormControl,
+  //   lname:new FormControl
+  //   })
+    // save(f:NgForm){
+    //   let data = f.value
+    //   console.log(data)
+    // }
+    save(){
+      console.log(this.myform.value)
+    }
   profile ={
     firstName : "osama",
     lastName:"mahmoud",
@@ -22,6 +38,7 @@ export class HomeComponent implements OnInit {
     country:"Egypt",
     age :25
 }
+
 imageLink="https://th.bing.com/th/id/OIP.DpcLyyRCeTWoiiMNdCTXxQHaEK?rs=1&pid=ImgDetMain"
 link="https://www.google.com.eg/"
 titleStyle1="color:red;"
@@ -54,15 +71,5 @@ gotodetails(){
   this.route.navigate(['/profile/detaile'])
 
   }
-myform = new FormGroup({
-fname:new FormControl,
-lname:new FormControl
-})
-// save(f:NgForm){
-//   let data = f.value
-//   console.log(data)
-// }
-save(){
-  console.log(this.myform.value)
-}
+
 }
