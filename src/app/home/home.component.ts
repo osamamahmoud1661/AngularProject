@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ShareserviceService } from '../service/shareservice.service';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +15,10 @@ myform :any
     this.myform=this.formbuilder.group({
       fname:['',[Validators.required,Validators.minLength(3)]],
       lname:['',[Validators.required,Validators.minLength(3)]],
-      emaill:['',[Validators.required,Validators.email]]
+      emaill:['',[Validators.required,Validators.email]],
+      items:this.formbuilder.array([
+        this.formbuilder.control('')
+      ])
 
     })
     
@@ -33,6 +36,15 @@ myform :any
     // }
     save(){
       console.log(this.myform.value)
+    }
+    get aliases() {
+      return this.myform.get('items') as FormArray;
+    }
+    additem(){
+      this.aliases.push(this.formbuilder.control(''));
+    }
+    removeitem(i:any){
+      this.aliases.removeAt(i);
     }
 //   profile ={
 //     firstName : "osama",

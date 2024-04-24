@@ -46,7 +46,14 @@
     <input placeholder="email" type="email" name="emaill" formControlName="emaill" required><br>
     <div class="alert alert-danger" *ngIf="myform.get('emaill').errors?.required && myform.get('emaill').touched">email is requird</div> 
     <div class="alert alert-danger" *ngIf="myform.get('emaill').errors?.email">invalid email</div> 
-    
+    <div formArrayName="items">
+        <button type="button" (click)="additem()">+ Add another alias</button>
+        <div *ngFor="let alias of aliases.controls; let i=index">
+            <label for="alias-{{ i }}">Alias:</label>
+            <input id="alias-{{ i }}" type="text" [formControlName]="i">
+            <button (click)="removeitem(i)">remove</button>
+        </div>
+    </div>
     <button type="submit" [disabled]="myform.invalid">Save</button>
 
 </form>
